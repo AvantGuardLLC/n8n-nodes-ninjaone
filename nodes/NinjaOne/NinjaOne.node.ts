@@ -1,6 +1,9 @@
-import {INodeType, INodeTypeDescription} from 'n8n-workflow';
+/* eslint-disable n8n-nodes-base/node-class-description-outputs-wrong */
+/* eslint-disable n8n-nodes-base/node-class-description-inputs-wrong-regular-node */
+
+import {INodeType, INodeTypeDescription, NodeConnectionType} from 'n8n-workflow';
 import {N8NPropertiesBuilder, N8NPropertiesBuilderConfig} from '@devlikeapro/n8n-openapi-node';
-import * as doc from './openapi.json';
+import * as doc from './openapi.json'; // <=== Your OpenAPI v3 spec
 
 const config: N8NPropertiesBuilderConfig = {}
 const parser = new N8NPropertiesBuilder(doc, config);
@@ -10,7 +13,7 @@ export class NinjaOne implements INodeType {
     description: INodeTypeDescription = {
         displayName: 'NinjaOne',
         name: 'ninjaOne',
-        icon: 'file:ninjaOne.svg',
+        icon: 'file:ninjaone.svg',
         group: ['transform'],
         version: 1,
         subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
@@ -18,8 +21,8 @@ export class NinjaOne implements INodeType {
         defaults: {
             name: 'NinjaOne',
         },
-        inputs: ['main'],
-        outputs: ['main'],
+				inputs: [NodeConnectionType.Main],
+				outputs: [NodeConnectionType.Main],
         credentials: [
             {
                 name: 'ninjaOneApi',
