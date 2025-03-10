@@ -1,0 +1,18 @@
+{
+	"node": "n8n-nodes-ninjaone",
+	"nodeVersion": "0.1",
+	"codexVersion": "0.1",
+	"categories": ["MSP"],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": "https://app.ninjarmm.com/apidocs-beta/authorization/overview"
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": "https://app.ninjaone.com/apidocs/?links.active=core"
+			}
+		]
+	}
+}
